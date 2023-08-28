@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 2 Form</title>
+</head>
+
+<body>
+    <h1>Form: </h1>
+    <form action="" method="get" onsubmit="return validationForm()">
+        <div>
+            <div>
+                <label for="username">Username: </label>
+                <input type="text" name="username" id="username">
+            </div>
+
+            <div>
+                <label for="email">Email (HTML5 Validation): </label>
+                <input type="email" name="emailhtml" id="emailhtml" required>
+            </div>
+
+
+
+            <div>
+                <label for="email">Email (JS Validation): </label>
+                <input type="email" name="emailjs" id="emailjs">
+            </div>
+
+            <div>
+                <label for="password">Password: </label>
+                <input type="password" name="password" id="password">
+            </div>
+
+            <div>
+                <p id="emailError"></p>
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+</body>
+
+<script>
+    function validationForm() {
+
+        var email = document.getElementById("emailjs").value
+        var regPattern = /[A-Za-z0-9]+@[A-Za-z]+.[A-Za-z]{2,3}/
+        if (regPattern.test(email)) {
+            return true;
+        }
+        else {
+            document.getElementById("emailError").innerHTML = "Invalid Email"
+            return false;
+        }
+    }
+</script>
+
+</html>
